@@ -7,3 +7,4 @@ export async function GET() {
   const filesTop = await prisma.file.findMany({ orderBy: { downloadCount: "desc" }, take: 5 });
   return NextResponse.json({ totalFiles, totalDownloads, filesTop });
 }
+export const dynamic = "force-dynamic";

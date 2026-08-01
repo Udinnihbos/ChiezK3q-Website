@@ -17,3 +17,4 @@ export default async function DownloadsPage() {
     </>
   );
 }
+export const dynamic = "force-dynamic";
