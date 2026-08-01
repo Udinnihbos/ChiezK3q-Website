@@ -1,7 +1,7 @@
-import { prisma } from "../../lib/prisma";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import DownloadButton from "../../components/DownloadButton";
+import { prisma } from "@/lib/prisma";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import DownloadButton from "@/components/DownloadButton";
 
 export default async function FilePage({ params }: { params: { slug: string } }) {
   const file = await prisma.file.findUnique({ where: { slug: params.slug } });

@@ -1,8 +1,8 @@
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import FileCard from "../../components/FileCard";
-import SearchFilter from "../../components/SearchFilter";
-import { prisma } from "../../lib/prisma";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import FileCard from "@/components/FileCard";
+import SearchFilter from "@/components/SearchFilter";
+import { prisma } from "@/lib/prisma";
 import { useState } from "react";
 
 export default async function DownloadsPage() {

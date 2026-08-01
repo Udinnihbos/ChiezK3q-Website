@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FileData } from "../types";
+import { FileData } from "@/types";
 
 export default function FileCard({ file }: { file: FileData }) {
   return (
