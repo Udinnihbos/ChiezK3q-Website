@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model File {
+  id            String     @id @default(cuid())
+  title         String
+  description   String
+  slug          String     @unique
+  shortcode     String     @unique
+  fileName      String
+  fileUrl       String
+  fileSize      String
+  category      String
+  tags          String[]
+  thumbnail     String?
+  youtubeLink   String?
+  downloadCount Int        @default(0)
+  isPublished   Boolean    @default(true)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  downloads     Download[]
+}
+
+model Download {
+  id        String   @id @default(cuid())
+  fileId    String
+  file      File     @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  ip        String?
+  userAgent String?
+  referer   String?
+  createdAt DateTime @default(now())
+}
