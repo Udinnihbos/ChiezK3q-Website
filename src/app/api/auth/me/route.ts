@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAuthCookie, verifyToken } from "@/lib/auth";
+import { getAuthCookie, verifyToken } from "../../lib/auth";
 
 export async function GET() {
   const token = await getAuthCookie();

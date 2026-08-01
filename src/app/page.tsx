@@ -1,11 +1,11 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
-import StatsSection from "@/components/StatsSection";
-import AboutSection from "@/components/AboutSection";
-import VideoSection from "@/components/VideoSection";
-import SocialLinks from "@/components/SocialLinks";
-import { prisma } from "@/lib/prisma";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import HeroSection from "../../components/HeroSection";
+import StatsSection from "../../components/StatsSection";
+import AboutSection from "../../components/AboutSection";
+import VideoSection from "../../components/VideoSection";
+import SocialLinks from "../../components/SocialLinks";
+import { prisma } from "../../lib/prisma";
 
 export const revalidate = 60;
 

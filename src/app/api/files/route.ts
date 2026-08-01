@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { nanoid } from "nanoid";
-import { slugify } from "@/lib/utils";
-import { prisma } from "@/lib/prisma";
+import { slugify } from "../../lib/utils";
+import { prisma } from "../../lib/prisma";
 
 export async function GET() {
   const files = await prisma.file.findMany({ orderBy: { createdAt: "desc" } });
