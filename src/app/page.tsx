@@ -10,9 +10,14 @@ import { prisma } from "@/lib/prisma";
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const files = await prisma.file.findMany({ where: { isPublished: true }, take: 6 });
-  const totalFiles = await prisma.file.count({ where: { isPublished: true } });
-  const totalDownloads = await prisma.download.count();
+  let files = [];
+  let totalFiles = 0;
+  let totalDownloads = 0;
+  try {
+    files = await prisma.file.findMany({ where: { isPublished: true }, take: 6 });
+    totalFiles = await prisma.file.count({ where: { isPublished: true } });
+    totalDownloads = await prisma.download.count();
+  } catch { /* db not ready */ }
 
   return (
     <>
