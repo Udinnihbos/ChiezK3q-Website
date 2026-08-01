@@ -6,7 +6,10 @@ export async function GET() {
   return POST();
 }
 
+import { execSync } from "child_process";
+
 export async function POST() {
+  try { execSync("npx prisma migrate deploy", { stdio: "inherit" }); } catch { /* ignore */ }
   const email = process.env.ADMIN_EMAIL || "admin@chiezk3q.com";
   const password = process.env.ADMIN_PASSWORD || "admin";
   const hashed = await bcrypt.hash(password, 10);
