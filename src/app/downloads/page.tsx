@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import DownloadsClient from "./DownloadsClient";
 
 export default async function DownloadsPage() {
-  let files = [];
+  let files: any[] = [];
   try {
     files = await prisma.file.findMany({ where: { isPublished: true }, orderBy: { createdAt: "desc" } });
   } catch { /* db not ready */ }
